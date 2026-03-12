@@ -1,16 +1,10 @@
 import React from 'react'
-import Image from 'next/image'
+
 export default function NavBar() {
   return (
       <nav className='p-4 flex justify-between'>
         <div className='flex gap-2 items-center '>
-          <Image
-            src="file.svg"
-            width={60}
-            height={60}
-            alt="Picture of the author"
-            className='border-3 border-amber-50 rounded-full p-2'
-          />
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-user-round-icon lucide-circle-user-round"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
           <h1 className='text-lg font-bold'>Dashboard</h1>
         </div>
         <div>

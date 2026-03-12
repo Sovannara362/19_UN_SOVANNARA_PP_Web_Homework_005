@@ -1,9 +1,12 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react'
 import Image from 'next/image'
 import BookmarkButton from './buttons/BookmarkButton'
-export default function Card({ item }) {
+import ViewButton from './buttons/ViewButton';
+export default function Card({ item ,setClickedItem, setShowModal}) {
+  const [saved, setSaved] = useState(item.saved);
   return (
-    <li className='flex justify-between items-center p-4 border m-4 rounded-xl'>
+    <li className='flex justify-between items-center p-4 bg-gray-900 m-4 rounded-xl'>
       <div className='flex gap-4 '>
         <Image
           src={item.image}
@@ -16,12 +19,12 @@ export default function Card({ item }) {
           <div className='flex gap-4'>
             <h1 className='text-lg font-bold'>{item.item_name}</h1>
             <p className='text-gray-300'>${item.item_price}</p>
-            <BookmarkButton save={item.saved}/>
+            <BookmarkButton item={item} saved={saved} setSaved={setSaved} />
           </div>
           <p className='text-gray-300'>{item.item_description}</p>
         </div>
       </div>
-      <button className='border border-gray-700 p-2 w-20 h-10'>View</button>
+      <ViewButton item={item} setClickedItem={setClickedItem} setShowModal={setShowModal}/>
     </li>
   )
 }
